@@ -9,7 +9,7 @@ zuul:
   routes:
     productCatalogueService: /productCatalogueService/**
     checkOutService : /checkOutService/**
-    uaaService:
+    authorizationService:
       sensitiveHeaders:
       path: /uaa/**
       stripPrefix: false
