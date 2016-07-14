@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: athorizationService
+
+# Define the port where the UAA server would be running
+server:
+  port: 8769
+  # Use different context-path to avoid session cookie overlapping
+  context-path: /uaa
+  use-forward-headers: true

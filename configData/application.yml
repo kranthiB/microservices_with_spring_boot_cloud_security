@@ -1,0 +1,8 @@
+# Define the Eureka server that handles service registration
+eureka:
+  instance:
+      hostname: localhost
+      port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/	  

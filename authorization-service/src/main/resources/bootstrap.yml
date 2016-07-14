@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8000
+
+# Define security
+security:
+  basic:
+    enabled: false
+  user:
+    password: password
+  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
+
+logging:
+  level.org.springframework.security: DEBUG

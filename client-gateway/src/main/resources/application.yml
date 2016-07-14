@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: clientGateway
+
+# Define the port where the API gateway server would be running
+server:
+  port: 8765
