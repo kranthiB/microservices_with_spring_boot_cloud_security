@@ -25,7 +25,7 @@ security:
     client:
       accessTokenUri: http://localhost:${server.port}/uaa/oauth/token
       userAuthorizationUri: /uaa/oauth/authorize
-      clientId: retailStore
+      clientId: retailstore
       clientSecret: retailStoreSecret
     resource:
       jwt:

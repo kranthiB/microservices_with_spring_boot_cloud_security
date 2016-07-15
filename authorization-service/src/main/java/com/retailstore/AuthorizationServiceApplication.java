@@ -79,7 +79,7 @@ public class AuthorizationServiceApplication extends WebMvcConfigurerAdapter {
         @Override
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
             clients.inMemory()
-                    .withClient("retailStore")
+                    .withClient("retailstore")
                     .secret("retailStoreSecret")
                     .authorizedGrantTypes("authorization_code", "refresh_token", "password")
                     .scopes("openid");
