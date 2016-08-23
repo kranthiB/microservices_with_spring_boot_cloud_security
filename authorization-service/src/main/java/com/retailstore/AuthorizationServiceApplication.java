@@ -81,7 +81,7 @@ public class AuthorizationServiceApplication extends WebMvcConfigurerAdapter {
             clients.inMemory()
                     .withClient("retailstore")
                     .secret("retailStoreSecret")
-                    .authorizedGrantTypes("authorization_code", "refresh_token", "password")
+                    .authorizedGrantTypes("authorization_code", "refresh_token", "password","client_credentials")
                     .scopes("openid");
         }
 

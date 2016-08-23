@@ -1,0 +1,6 @@
+https://github.com/rohitghatol/spring-boot-microservices
+https://programmaticponderings.wordpress.com/2015/08/02/log-aggregation-visualization-and-analysis-of-microservices-using-elk-stack-and-logspout/
+http://blog.takipi.com/5-ways-to-not-f-up-your-microservices-in-production/
+https://gameontext.gitbooks.io/gameon-gitbook/content/walkthroughs/elkStack.html
+
+https://developer.paypal.com/docs/integration/direct/make-your-first-call/

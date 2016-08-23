@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: dashboardService
+
+# Define the port where the Widget Foundry server would be running
+server:
+  port: 8872
