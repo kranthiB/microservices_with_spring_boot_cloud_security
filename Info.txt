@@ -4,3 +4,5 @@ http://blog.takipi.com/5-ways-to-not-f-up-your-microservices-in-production/
 https://gameontext.gitbooks.io/gameon-gitbook/content/walkthroughs/elkStack.html
 
 https://developer.paypal.com/docs/integration/direct/make-your-first-call/
+
+http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
