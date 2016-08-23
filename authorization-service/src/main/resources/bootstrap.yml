@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      uri: http://localhost:8000
+      uri: http://192.168.99.100:8000
 
 # Define security
 security:
