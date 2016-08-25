@@ -1,3 +1,6 @@
+management:
+  security:
+    enabled: false
 spring:
   cloud:
     config:
