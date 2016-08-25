@@ -6,3 +6,6 @@ https://gameontext.gitbooks.io/gameon-gitbook/content/walkthroughs/elkStack.html
 https://developer.paypal.com/docs/integration/direct/make-your-first-call/
 
 http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
+
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-docs/src/main/asciidoc/production-ready-features.adoc
+http://kielczewski.eu/2015/01/application-metrics-with-spring-boot-actuator/
