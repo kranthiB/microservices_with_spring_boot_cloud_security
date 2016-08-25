@@ -1,7 +1,7 @@
 # Define the Eureka server that handles service registration
 eureka:
   instance:
-      hostname: 192.168.99.100
+      hostname: localhost
       port: 8761
   client:
     serviceUrl:
