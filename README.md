@@ -37,13 +37,13 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 ![authorization-code-flow](https://cloud.githubusercontent.com/assets/20100300/17996681/f637ddda-6b2f-11e6-9608-8927929ddf1a.png)
 
 
-## Business Services
+## Functional Services
 ### 1.Product Catalogue Service
 
 	It offers the following functionality by using Embedded H2 Database.
     
             1. GET  	/productCatalogueService/products – gives the list of all products
-            2. GET 	/productCatalogueService/searchbyIds  – gives the list of products for matching name,type
+            2. GET 		/productCatalogueService/searchbyIds  – gives the list of products for matching name,type
             4. POST  	/productCatalogueService/products – saves the given product
             5. DELETE 	/productCatalogueService/products/{id} – delete the given product
 
