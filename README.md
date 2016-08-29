@@ -62,6 +62,10 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 
 ![micorservicedashboard](https://cloud.githubusercontent.com/assets/20100300/17996875/f062b5f0-6b30-11e6-8165-eca4b66dc83f.PNG)
 
+## Monitor Dashboard
+
+![1](https://cloud.githubusercontent.com/assets/20100300/18051542/d28a1962-6e12-11e6-8e22-29a79c14516d.png)
+
 ## Execution - Continuous Deployment
 
 [Build Continuous Deployment with Jenkins and docker] (https://github.com/kranthiB/Build-Continuous-Integration-with-Jenkins-and-Dokcer/blob/master/README.md)
