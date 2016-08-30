@@ -13,3 +13,15 @@ http://kielczewski.eu/2015/01/application-metrics-with-spring-boot-actuator/
 cheat Sheet
 ----------
 https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.md
+
+
+Hystrix
+-------
+https://github.com/Netflix/Hystrix/wiki/Configuration#execution.isolation.strategy
+
+https://github.com/Netflix/Hystrix/wiki/How-it-Works#isolation
+
+
+https://github.com/Netflix/Hystrix/wiki/How-To-Use#common-patterns
+
+https://github.com/Netflix/Hystrix/wiki
