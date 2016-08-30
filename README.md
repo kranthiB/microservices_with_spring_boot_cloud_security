@@ -75,3 +75,5 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 ### High Level View
 ![hystrix-flow](https://cloud.githubusercontent.com/assets/20100300/18075347/9950b4f6-6e91-11e6-8823-d508957f4974.png)
 
+### Request Caching Mechanism
+![request-cache](https://cloud.githubusercontent.com/assets/20100300/18075410/3068b096-6e92-11e6-87ec-20508a732dff.png)
