@@ -70,6 +70,8 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 
 [Build Continuous Deployment with Jenkins and docker] (https://github.com/kranthiB/Build-Continuous-Integration-with-Jenkins-and-Dokcer/blob/master/README.md)
 
-## Hystrix Internals in One Picture
+## Hystrix Internals
 
-![hystrix-flow](https://cloud.githubusercontent.com/assets/20100300/18064771/7cc8b27c-6e4e-11e6-87c9-08142d94bcbf.png)
+### High Level View
+![hystrix-flow](https://cloud.githubusercontent.com/assets/20100300/18075347/9950b4f6-6e91-11e6-8823-d508957f4974.png)
+
