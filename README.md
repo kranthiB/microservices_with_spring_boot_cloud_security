@@ -81,3 +81,4 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 ### Hystrix Circuit Breaker
 ![circuit-breaker](https://cloud.githubusercontent.com/assets/20100300/18204061/474f6e8a-70e0-11e6-8ef2-e10ed07df3a7.png)
 
+### Hystrix Isolation
