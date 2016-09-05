@@ -1,11 +1,22 @@
 spring:
   cloud:
     config:
-      uri: http://192.168.99.100:8000
+      uri: http://localhost:8000
   aop:
       proxyTargetClass: true
 
 zuul:
+  hystrix:
+    threadpool:
+      coreSize: 10
+      maxQueueSize: -1
+      queueSizeRejectionThreshold: 5
+      keepAliveTimeMinutes: 1
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 10000
+        rollingPercentile:
+          numBuckets: 10
   routes:
     productCatalogueService: /productCatalogueService/**
     checkOutService : /checkOutService/**
@@ -38,3 +49,54 @@ security:
 
 logging:
   level.org.springframework.security: DEBUG
+turbine:
+  aggregator:
+    clusterConfig: SAMPLE-HYSTRIX-AGGREGATE
+  appConfig: SAMPLE-HYSTRIX-AGGREGATE
+management:
+  security:
+    enabled: false
+hystrix:
+  command:
+    productCatalogueService:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 100000
+    checkOutService:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 100000
+    authorizationService:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 100000
+productCatalogueService:
+  hystrix:
+    threadpool:
+      coreSize: 10
+      maxQueueSize: -1
+      queueSizeRejectionThreshold: 5
+      keepAliveTimeMinutes: 1
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 10000
+        rollingPercentile:
+          numBuckets: 10
+checkOutService:
+  hystrix:
+    threadpool:
+      coreSize: 10
+      maxQueueSize: -1
+      queueSizeRejectionThreshold: 5
+      keepAliveTimeMinutes: 1
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 10000
+        rollingPercentile:
+          numBuckets: 10

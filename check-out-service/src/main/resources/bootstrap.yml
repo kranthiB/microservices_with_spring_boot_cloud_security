@@ -1,10 +1,10 @@
 management:
   security:
-    enabled: false
+    enabled: true
 spring:
   cloud:
     config:
-      uri: http://192.168.99.100:8000
+      uri: http://localhost:8000
 # Disable spring basic authentication security
 security:
   basic:
