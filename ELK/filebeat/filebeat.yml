@@ -1,0 +1,16 @@
+output:
+  logstash:
+    enabled: true
+    hosts:
+      - 192.168.99.102:5044
+    timeout: 15
+    tls:
+      certificate_authorities:
+      - /etc/pki/tls/certs/logstash-forwarder.crt
+
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /var/log/spring/*.log
+      document_type: product-service-log

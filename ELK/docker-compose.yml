@@ -1,0 +1,12 @@
+myelk:
+   image: myelk
+   ports:
+      - 9200:9200
+      - 9300:9300
+      - 5044:5044
+      - 5000:5000
+      - 5601:5601
+   volumes:
+      - ./log/elasticsearch:/var/log/elasticsearch
+      - ./log/logstash:/var/log/logstash
+      - ./log/kibana:/var/log/kibana
