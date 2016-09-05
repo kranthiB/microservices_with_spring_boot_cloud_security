@@ -25,3 +25,8 @@ https://github.com/Netflix/Hystrix/wiki/How-it-Works#isolation
 https://github.com/Netflix/Hystrix/wiki/How-To-Use#common-patterns
 
 https://github.com/Netflix/Hystrix/wiki
+
+ELK
+----
+https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04
+https://elk-docker.readthedocs.io/
