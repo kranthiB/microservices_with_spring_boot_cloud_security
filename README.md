@@ -70,7 +70,7 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 
 ### Infrastructure
 ![elk](https://cloud.githubusercontent.com/assets/20100300/18250584/e118f4e6-73a1-11e6-946b-6fcb1679e6d6.png)
-### Execution
+### Set-Up
 
 ### Kibana - UI
 ![ui](https://cloud.githubusercontent.com/assets/20100300/18250653/66cdc2a6-73a2-11e6-8dc9-c012da9c0730.PNG)
