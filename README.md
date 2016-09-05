@@ -66,6 +66,15 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 
 ![1](https://cloud.githubusercontent.com/assets/20100300/18051542/d28a1962-6e12-11e6-8e22-29a79c14516d.png)
 
+## ELK - LOG Analysis
+
+### Infrastructure
+![elk](https://cloud.githubusercontent.com/assets/20100300/18250584/e118f4e6-73a1-11e6-946b-6fcb1679e6d6.png)
+### Execution
+
+### Kibana - UI
+
+
 ## Execution - Continuous Deployment
 
 [Build Continuous Deployment with Jenkins and docker] (https://github.com/kranthiB/Build-Continuous-Integration-with-Jenkins-and-Dokcer/blob/master/README.md)
