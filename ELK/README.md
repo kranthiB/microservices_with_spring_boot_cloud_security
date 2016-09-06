@@ -29,7 +29,7 @@
   
   Add the content “subjectAltName = IP: 192.168.99.102” under  “v3_ca” section in “openssl.cnf”
   
-![5](https://cloud.githubusercontent.com/assets/20100300/18266270/89c9a7a6-73df-11e6-8619-ad9c99c0b0d6.JPG)  
+![1](https://cloud.githubusercontent.com/assets/20100300/18268603/1dd06494-73ea-11e6-9f17-33c44cad9e66.jpg) 
   
   Execute the openssl command to generate the certificate and key which will later be used to have ssl handshake
   between filebeat and logstash.
