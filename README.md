@@ -69,7 +69,7 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 ## ELK - LOG Analysis
 
 ### Infrastructure
-![elk](https://cloud.githubusercontent.com/assets/20100300/18250584/e118f4e6-73a1-11e6-946b-6fcb1679e6d6.png)
+![elk](https://cloud.githubusercontent.com/assets/20100300/18265462/7d2c2338-73db-11e6-88a1-7998fb79a833.png)
 ### Set-Up
 [ELK Set up in Docker Toolbox] (https://github.com/kranthiB/microservices_with_spring_boot_cloud_security/tree/master/ELK)
 ### Kibana - UI
