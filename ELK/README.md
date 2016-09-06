@@ -2,13 +2,17 @@
 
 ## ELK Configuration
   Create a docker machine using the below command which will be used to set up ELK.
-  
-      docker-machine create -d virtualbox --virtualbox-memory "2000" --virtualbox-disk-size "5000" elknode
+
+![1](https://cloud.githubusercontent.com/assets/20100300/18266268/899b03b0-73df-11e6-9954-5c9555cb8b9a.JPG)
+
+	docker-machine create -d virtualbox --virtualbox-memory "2000" --virtualbox-disk-size "5000" elknode
   
   Enable the above created machine using the below command so that all the successive commands will be executed
   in this newly created machine.
   
-      eval $(docker-machine env elknode)
+![2](https://cloud.githubusercontent.com/assets/20100300/18266267/899a8bec-73df-11e6-904f-dcfce43c755e.JPG)
+
+	eval $(docker-machine env elknode)
 	        
   To ensure whether the above machine got active or not, execute the below command, under the “Active” column 
   value must be “*” for elk node
