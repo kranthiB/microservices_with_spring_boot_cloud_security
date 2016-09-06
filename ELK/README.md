@@ -58,17 +58,17 @@
 	FROM sebp/elk:latest
 	MAINTAINER Kranthi Kumar Bitra <kranthi.b76@gmail.com>
 
-        # LOGSTASH CONFIGURATION
-        RUN mkdir -p /etc/pki/tls/certs
-        COPY logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
-        RUN mkdir -p /etc/pki/tls/private
-        COPY logstash-forwarder.key /etc/pki/tls/private/logstash-forwarder.key
-        COPY 02-beats-input.conf /etc/logstash/conf.d/02-beats-input.conf
+	# LOGSTASH CONFIGURATION
+	RUN mkdir -p /etc/pki/tls/certs
+	COPY logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
+	RUN mkdir -p /etc/pki/tls/private
+	COPY logstash-forwarder.key /etc/pki/tls/private/logstash-forwarder.key
+	COPY 02-beats-input.conf /etc/logstash/conf.d/02-beats-input.conf
 
-        # KIBANA CONFIGURATION
-        RUN cd ~ && { curl -L -O https://download.elastic.co/beats/dashboards/beats-dashboards-1.1.0.zip ; cd -; }
-        RUN apt-get -y install unzip
-        RUN cd ~ && { unzip beats-dashboards-*.zip  ; cd -; } 
+	# KIBANA CONFIGURATION
+	RUN cd ~ && { curl -L -O https://download.elastic.co/beats/dashboards/beats-dashboards-1.1.0.zip ; cd -; }
+	RUN apt-get -y install unzip
+	RUN cd ~ && { unzip beats-dashboards-*.zip  ; cd -; } 
   
   Create a file with name “docker-compose.yml” under “ELK” directory , fill with the below content
 
@@ -90,24 +90,45 @@
   In command prompt, go to the “ELK” directory where the above five files exists, execute the below commands
   to run the elk
   
-        o	docker build –t myelk . 
-        o	In order to confirm whether the image got created, execute the command – “docker images myelk”
-        o	docker-compose up
-        o	In order to confirm whether the process created or not, execute the command “docker ps -a”
-            which should be in “Up” status
+	o	docker build –t myelk . 
+
+![10](https://cloud.githubusercontent.com/assets/20100300/18266279/8a289eb4-73df-11e6-9a33-a4b11df237fe.JPG)
+
+	o	In order to confirm whether the image got created, execute the command – “docker images myelk”
+
+![11](https://cloud.githubusercontent.com/assets/20100300/18266277/8a24514c-73df-11e6-9f63-fd585ca3cd13.JPG)
+
+	o	docker-compose up
+
+![12](https://cloud.githubusercontent.com/assets/20100300/18266276/8a242ef6-73df-11e6-8477-3be4cbdb71e0.JPG)
+
+	o	In order to confirm whether the process created or not, execute the command “docker ps -a”
+		which should be in “Up” status
+
+![13](https://cloud.githubusercontent.com/assets/20100300/18266278/8a276058-73df-11e6-8522-4484279306f2.JPG)
           
   Connect to the bash by using the command – “docker exec –it ELK_CONTAINER_ID bash”
+
+![14](https://cloud.githubusercontent.com/assets/20100300/18266280/8a2e25c8-73df-11e6-96ec-ebbbf61f6982.JPG)  
   
   In that bash , execute the command - “cd ~/beats-dashboards-1.1.0”
+
+![15](https://cloud.githubusercontent.com/assets/20100300/18266282/8a2f353a-73df-11e6-9fa6-7ea19ca765ab.JPG)  
   
   Execute the command – “./load.sh”
+
+![16](https://cloud.githubusercontent.com/assets/20100300/18266286/8a56b038-73df-11e6-8520-a7a55ee0bcfa.JPG)  
   
   Now exit the bash by executing the command -  “exit”
   
   In the browser, access the url - http://192.168.99.102:5601/ , now navigate to “Settings->Indices” ,
   will be seen four index patterns like 
+
+![17](https://cloud.githubusercontent.com/assets/20100300/18266284/8a53d3d6-73df-11e6-9890-1fbc704fff1f.JPG)  
   
   Now, select the “filebeat-*” pattern and click the star which will be selected this index as default pattern
+
+![18](https://cloud.githubusercontent.com/assets/20100300/18266285/8a56723a-73df-11e6-8565-eddc09cfb56c.JPG)  
 
 ## Filebeat Configuration
   Create a docker machine using the below command which will be used to set up Filebeat + Spring Boot.
