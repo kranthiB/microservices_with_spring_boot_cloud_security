@@ -132,88 +132,104 @@
 
 ## Filebeat Configuration
   Create a docker machine using the below command which will be used to set up Filebeat + Spring Boot.
+
+![19](https://cloud.githubusercontent.com/assets/20100300/18266287/8a5a713c-73df-11e6-9b2d-c62d1a384416.JPG)  
   
-    docker-machine create -d virtualbox --virtualbox-memory "2000" --virtualbox-disk-size "10000" filebeat
+	docker-machine create -d virtualbox --virtualbox-memory "2000" --virtualbox-disk-size "10000" filebeat
       
   Enable the above created machine using the below command so that all the successive commands will be executed
   in this newly created machine.
+
+![20](https://cloud.githubusercontent.com/assets/20100300/18266288/8a5c54b6-73df-11e6-8d75-dbc7eb634f58.JPG)  
       
-    eval $(docker-machine env filebeat)
+	eval $(docker-machine env filebeat)
       
   To ensure whether the above machine got active or not, execute the below command, under the “Active” column
   value must be “*” for filebeat node.
+  
+![21](https://cloud.githubusercontent.com/assets/20100300/18266289/8a5dd08e-73df-11e6-9aaf-fd426c3ca266.JPG)  
       
-    docker-machine ls
+	docker-machine ls
       
   Create a base directory as “filebeat” to initiate the configuration - mkdir filebeat
+
+![22](https://cloud.githubusercontent.com/assets/20100300/18266290/8a8306d8-73df-11e6-8719-f3bc5e40aff4.JPG)  
   
   Download the jar -  under the “filebeat” directory. This is sample spring-boot project which writes the logs 
   to directory  - /var/log/spring and provides the following resources (which will be used to test)
   
-        o	GET      /products 
-        o	GET      / searchbyIds
-        o	POST     / products
-        o	DELETE   / products/{id}
+	o	GET      /products 
+	o	GET      / searchbyIds
+	o	POST     / products
+	o	DELETE   / products/{id}
         
   Copy the logstash-forwarder.crt file from ELK node to the “filebeat” directory.
   
   Create a file with name “filebeat.yml” under the “filebeat” directory – touch filebeat.yml
+
+![23](https://cloud.githubusercontent.com/assets/20100300/18266291/8a84f2c2-73df-11e6-8997-2699738cfffb.JPG)  
   
   Fill the filebeat.yml with the below the content
-  
-          output:
-              logstash:
-                  enabled: true
-                  hosts:
-                    - 192.168.99.102:5044
-                  timeout: 15
-              tls:
-                  certificate_authorities:
-                      - /etc/pki/tls/certs/logstash-forwarder.crt
-          filebeat:
-            prospectors:
-              -
-                paths:
-                    - /var/log/spring/*.log
-                document_type: product-service-log
+
+	output:
+		logstash:
+			enabled: true
+			hosts:
+				- 192.168.99.102:5044
+			timeout: 15
+		tls:
+			certificate_authorities:
+				- /etc/pki/tls/certs/logstash-forwarder.crt
+	filebeat:
+		prospectors:
+			-
+				paths:
+					- /var/log/spring/*.log
+				document_type: product-service-log
                 
   Create a file with name “Dockerfile” and fill with the below content
+
+![24](https://cloud.githubusercontent.com/assets/20100300/18266292/8a86d79a-73df-11e6-9be9-687d284ce265.JPG)  
   
-          FROM ruimo/dockerfile-ubuntu1404-jdk8
-          MAINTAINER Kranthi Kumar Bitra<kranthi.b76@gmail.com>
+	FROM ruimo/dockerfile-ubuntu1404-jdk8
+	MAINTAINER Kranthi Kumar Bitra<kranthi.b76@gmail.com>
   
-          RUN apt-get update -qq \
-            && apt-get install -qqy curl \
-            && apt-get clean
+	RUN apt-get update -qq \
+		&& apt-get install -qqy curl \
+		&& apt-get clean
 
-          RUN curl -L -O https://download.elastic.co/beats/filebeat/filebeat_1.0.1_amd64.deb 
-            && dpkg -i filebeat_1.0.1_amd64.deb && rm filebeat_1.0.1_amd64.deb
+	RUN curl -L -O https://download.elastic.co/beats/filebeat/filebeat_1.0.1_amd64.deb 
+		&& dpkg -i filebeat_1.0.1_amd64.deb && rm filebeat_1.0.1_amd64.deb
 
-          ADD filebeat.yml /etc/filebeat/filebeat.yml
+	ADD filebeat.yml /etc/filebeat/filebeat.yml
 
-          RUN mkdir -p /etc/pki/tls/certs
-          ADD logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
+	RUN mkdir -p /etc/pki/tls/certs
+	ADD logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
 
-          ADD product-catalogue-service-1.0.jar product-catalogue-service.jar
-          RUN sh -c 'touch /product-catalogue-service.jar'
+	ADD product-catalogue-service-1.0.jar product-catalogue-service.jar
+	RUN sh -c 'touch /product-catalogue-service.jar'
 
-          ADD ./start.sh /usr/local/bin/start.sh
-          RUN chmod +x /usr/local/bin/start.sh
-          CMD [ "/usr/local/bin/start.sh" ]
+	ADD ./start.sh /usr/local/bin/start.sh
+	RUN chmod +x /usr/local/bin/start.sh
+	CMD [ "/usr/local/bin/start.sh" ]
           
   Create a file with name “start.sh” and fill with the below content
+
+
   
-          curl -XPUT 'http://192.168.99.102:9200/_template/filebeat?pretty' -d@/etc/filebeat/filebeat.template.json
-          
-          /etc/init.d/filebeat start
-          
-          java -Djava.security.egd=file:/dev/./urandom -jar /product-catalogue-service.jar
+	curl -XPUT 'http://192.168.99.102:9200/_template/filebeat?pretty' -d@/etc/filebeat/filebeat.template.json
+	/etc/init.d/filebeat start
+	java -Djava.security.egd=file:/dev/./urandom -jar /product-catalogue-service.jar
           
   In the command prompt, go to the directory where the above five files exist
   
-          o	docker build –t myfilebeat .
+	o	docker build –t myfilebeat .
+	
+![25](https://cloud.githubusercontent.com/assets/20100300/18266293/8a8913de-73df-11e6-9b2e-b921844c8769.JPG)
           
           o	In order to confirm whether the images got created, execute the command – “docker images myfilebeat
+
+![26](https://cloud.githubusercontent.com/assets/20100300/18266294/8a8b8e34-73df-11e6-9863-a57323333c37.JPG)	          
           
           o	Execute the command – “docker run –p 8870:8870 –p 5400:5400 myfilebeat”
           
@@ -222,6 +238,7 @@
   Access the kibana url - http://192.168.99.102:5601/ in the browser
   
   In that, click the discover link, will visualize all the logs related to product-catalogue service 
-  
+
+![27](https://cloud.githubusercontent.com/assets/20100300/18266295/8a8c222c-73df-11e6-9113-279d27fa1b0b.JPG)  
  
 
