@@ -16,61 +16,75 @@
 	        
   To ensure whether the above machine got active or not, execute the below command, under the “Active” column 
   value must be “*” for elk node
+
+![3](https://cloud.githubusercontent.com/assets/20100300/18266266/899a58fc-73df-11e6-83b5-10e9dfd82151.JPG)
   
-      docker-machine ls
+	docker-machine ls
       
   Create a base directory as “ELK” to initiate the configuration – mkdir ELK
+
+![4](https://cloud.githubusercontent.com/assets/20100300/18266272/89d0ab14-73df-11e6-9380-c18433e1c65b.JPG)  
   
   Download the file -  under the ELK directory.
   
   Add the content “subjectAltName = IP: 192.168.99.102” under  “v3_ca” section in “openssl.cnf”
   
+![5](https://cloud.githubusercontent.com/assets/20100300/18266270/89c9a7a6-73df-11e6-8619-ad9c99c0b0d6.JPG)  
+  
   Execute the openssl command to generate the certificate and key which will later be used to have ssl handshake
   between filebeat and logstash.
+
+![6](https://cloud.githubusercontent.com/assets/20100300/18266271/89d075ea-73df-11e6-9892-55d425bf6b01.JPG)  
   
-      openssl req -config openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout
-      logstash-forwarder.key -out logstash-forwarder.crt
+	openssl req -config openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout
+	logstash-forwarder.key -out logstash-forwarder.crt
           
   Create a file with “02-beats-input.conf” under “ELK” directory, fill with the below content
+
+![7](https://cloud.githubusercontent.com/assets/20100300/18266273/89f89368-73df-11e6-9c43-ad94e02bca03.JPG)    
   
-      input {
-        beats {
-	        port => 5044
-	        ssl => true
-	        ssl_certificate => "/etc/pki/tls/certs/logstash-forwarder.crt"
-	        ssl_key => "/etc/pki/tls/private/logstash-forwarder.key"
-	      }
-	    }
+	input {
+		beats {
+			port => 5044
+			ssl => true
+	        	ssl_certificate => "/etc/pki/tls/certs/logstash-forwarder.crt"
+	        	ssl_key => "/etc/pki/tls/private/logstash-forwarder.key"
+	      	}
+	}
   Create a file with name “Dockerfile” under “ELK” directory , fill with the below content
+
+![8](https://cloud.githubusercontent.com/assets/20100300/18266275/89ff4a50-73df-11e6-8282-46319fb1cbdb.JPG)  
   
-          FROM sebp/elk:latest
-          MAINTAINER Kranthi Kumar Bitra <kranthi.b76@gmail.com>
+	FROM sebp/elk:latest
+	MAINTAINER Kranthi Kumar Bitra <kranthi.b76@gmail.com>
 
-          # LOGSTASH CONFIGURATION
-          RUN mkdir -p /etc/pki/tls/certs
-          COPY logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
-          RUN mkdir -p /etc/pki/tls/private
-          COPY logstash-forwarder.key /etc/pki/tls/private/logstash-forwarder.key
-          COPY 02-beats-input.conf /etc/logstash/conf.d/02-beats-input.conf
+        # LOGSTASH CONFIGURATION
+        RUN mkdir -p /etc/pki/tls/certs
+        COPY logstash-forwarder.crt /etc/pki/tls/certs/logstash-forwarder.crt
+        RUN mkdir -p /etc/pki/tls/private
+        COPY logstash-forwarder.key /etc/pki/tls/private/logstash-forwarder.key
+        COPY 02-beats-input.conf /etc/logstash/conf.d/02-beats-input.conf
 
-          # KIBANA CONFIGURATION
-          RUN cd ~ && { curl -L -O https://download.elastic.co/beats/dashboards/beats-dashboards-1.1.0.zip ; cd -; }
-          RUN apt-get -y install unzip
-          RUN cd ~ && { unzip beats-dashboards-*.zip  ; cd -; } 
+        # KIBANA CONFIGURATION
+        RUN cd ~ && { curl -L -O https://download.elastic.co/beats/dashboards/beats-dashboards-1.1.0.zip ; cd -; }
+        RUN apt-get -y install unzip
+        RUN cd ~ && { unzip beats-dashboards-*.zip  ; cd -; } 
   
   Create a file with name “docker-compose.yml” under “ELK” directory , fill with the below content
+
+![9](https://cloud.githubusercontent.com/assets/20100300/18266274/89ff5252-73df-11e6-9ec1-960ec2573815.JPG)  
   
-      myelk:
-  	    image: myelk
-  		  ports:
-          - 9200:9200
-     		  - 9300:9300
-      	  - 5044:5044
-      	  - 5000:5000
-      	  - 5601:5601
-   		  volumes:  
-      	  - ./log/elasticsearch:/var/log/elasticsearch
-      		- ./log/logstash:/var/log/logstash
+	myelk:
+		image: myelk
+		ports:
+			- 9200:9200
+			- 9300:9300
+      	  		- 5044:5044
+      	  		- 5000:5000
+      	  		- 5601:5601
+		volumes:  
+			- ./log/elasticsearch:/var/log/elasticsearch
+			- ./log/logstash:/var/log/logstash
      			- ./log/kibana:/var/log/kibana
      			
   In command prompt, go to the “ELK” directory where the above five files exists, execute the below commands
