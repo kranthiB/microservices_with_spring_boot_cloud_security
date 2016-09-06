@@ -155,7 +155,7 @@
 
 ![22](https://cloud.githubusercontent.com/assets/20100300/18266290/8a8306d8-73df-11e6-8719-f3bc5e40aff4.JPG)  
   
-  Download the jar -  under the “filebeat” directory. This is sample spring-boot project which writes the logs 
+  Download the jar - [product-catalogue-service-1.0.jar] (https://github.com/kranthiB/microservices_with_spring_boot_cloud_security/blob/master/ELK/filebeat/product-catalogue-service-1.0.jar) under the “filebeat” directory. This is sample spring-boot project which writes the logs 
   to directory  - /var/log/spring and provides the following resources (which will be used to test)
   
 	o	GET      /products 
