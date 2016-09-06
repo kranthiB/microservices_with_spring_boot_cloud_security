@@ -71,7 +71,7 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 ### Infrastructure
 ![elk](https://cloud.githubusercontent.com/assets/20100300/18265462/7d2c2338-73db-11e6-88a1-7998fb79a833.png)
 ### Set-Up
-[ELK Set up in Docker Toolbox] (https://github.com/kranthiB/microservices_with_spring_boot_cloud_security/tree/master/ELK)
+[ELK Set up in Docker Toolbox] (https://github.com/kranthiB/microservices_with_spring_boot_cloud_security/blob/master/ELK/README.md)
 ### Kibana - UI
 ![ui](https://cloud.githubusercontent.com/assets/20100300/18250653/66cdc2a6-73a2-11e6-8dc9-c012da9c0730.PNG)
 
