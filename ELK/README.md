@@ -25,7 +25,7 @@
 
 ![4](https://cloud.githubusercontent.com/assets/20100300/18266272/89d0ab14-73df-11e6-9380-c18433e1c65b.JPG)  
   
-  Download the file -  under the ELK directory.
+  Download the file - ![openssl.cnf](https://github.com/kranthiB/microservices_with_spring_boot_cloud_security/blob/master/ELK/openssl.cnf) under the ELK directory.
   
   Add the content “subjectAltName = IP: 192.168.99.102” under  “v3_ca” section in “openssl.cnf”
   
