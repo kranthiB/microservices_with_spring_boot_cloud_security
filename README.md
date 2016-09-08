@@ -76,6 +76,7 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 ![ui](https://cloud.githubusercontent.com/assets/20100300/18250653/66cdc2a6-73a2-11e6-8dc9-c012da9c0730.PNG)
 
 ## Swagger API Documentation
+![1234](https://cloud.githubusercontent.com/assets/20100300/18348608/f56fb3de-7591-11e6-9a63-85d944cbe5b3.png)
 
 ## Execution - Continuous Deployment
 
