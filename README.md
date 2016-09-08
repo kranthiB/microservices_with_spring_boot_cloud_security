@@ -75,6 +75,8 @@ This project demonstrates Microservice Architecture pattern using Spring Boot, S
 ### Kibana - UI
 ![ui](https://cloud.githubusercontent.com/assets/20100300/18250653/66cdc2a6-73a2-11e6-8dc9-c012da9c0730.PNG)
 
+## Swagger API Documentation
+
 ## Execution - Continuous Deployment
 
 [Build Continuous Deployment with Jenkins and docker] (https://github.com/kranthiB/Build-Continuous-Integration-with-Jenkins-and-Dokcer/blob/master/README.md)
