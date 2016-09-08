@@ -18,8 +18,9 @@ zuul:
         rollingPercentile:
           numBuckets: 10
   routes:
-    productCatalogueService: /productCatalogueService/**
-    checkOutService : /checkOutService/**
+    productCatalogueService: /productcatalogueservice/**
+    checkOutService : /checkoutservice/**
+    swaggerService : /swaggerservice/**
     authorizationService:
       sensitiveHeaders:
       path: /uaa/**
